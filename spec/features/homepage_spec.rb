@@ -1,7 +1,9 @@
 feature "Hompage" do
 
-  scenarios "homepage start" do
-    expect(page).to have_text("Rock Paper Scissors")
+  scenario "homepage start" do
+    visit('/')
+    expect(page).to have_content "Rock Paper Scissors"
   end
+
 
 end
