@@ -9,7 +9,7 @@ get '/' do
 end
 
 post '/name' do
-  @player = params[:player]
+  @human = params[:human_name]
   erb :play
 end
 
