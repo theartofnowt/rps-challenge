@@ -1,1 +1,13 @@
-<p>Hello <%= @human_name %>!</p>
+<p><h1>Oh thou <%= @human_name %>!</h1></p>
+  <br>
+<p><h2>Pleas'th choose a 'sign' and choose wisely!</h2><p>
+  <br>
+  <form action="/signs" method="post">
+      <input type="radio" id="Sign_of_rock"
+    name="signs_choice" value="rock">Rock!<br>
+      <input type="radio" id="Sign_of_paper"
+    name="signs_choice" value="paper">Paper!<br>
+      <input type="radio" id="Sign_of_scissors"
+    name="signs_choice" value="scissors">Scissors!<br>
+      <input type="submit" value="Unleash Thee!">
+  </form>

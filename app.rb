@@ -19,5 +19,15 @@ get '/play' do
   erb :play
 end
 
+post '/signs' do
+  session[:signs_choice] = params[:signs_choice]
+  redirect '/result'
+end
+
+get '/result' do
+  @signs_choice = session[:signs_choice]
+  erb :result
+end
+
 run! if app_file == $0
 end
