@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require File.join(File.dirname(__FILE__), 'lib/game.rb')
 require File.join(File.dirname(__FILE__), 'lib/player.rb')
 
 class RPS < Sinatra::Base
@@ -10,22 +11,20 @@ get '/' do
 end
 
 post '/name' do
-  $human = Player.new(params[:human_name])
+  $game = Game.new(Player.new(params[:human_name]))
   redirect '/play'
 end
 
 get '/play' do
-  @human_name = $human.name
   erb :play
 end
 
 post '/signs' do
-  session[:signs_choice] = params[:signs_choice]
+  $game.player.chooses_sign(params[:signs_choice])
   redirect '/result'
 end
 
 get '/result' do
-  @signs_choice = session[:signs_choice]
   erb :result
 end
 

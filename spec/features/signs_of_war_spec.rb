@@ -14,7 +14,7 @@ feature "Signs of war" do
     expect(page).to have_content 'Oh thee, you chose the great sign of PAPER!'
   end
 
-  scenario "Player to choose rock" do
+  scenario "Player to choose scissors" do
     sign_in_and_play('Michael')
     choose('Sign_of_scissors')
     click_button("Unleash Thee!")
