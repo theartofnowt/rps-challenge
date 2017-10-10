@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rounds!</title>
+    <link href="views/css/rps-stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+  </head>
+  <body>
+
+  <div id="rounds_question_box">
+    <h3>Hi there, <%= @player_name %>!</h3>
+
+    <h3>How many rounds would you like to play?</h3>
+  </div>
+
+  <div id="rounds_option_box">
+    <form method="post" action="/play">
+    <ul id="rounds_option_list">
+      <li><button class="rounds_option" type="submit" name="no_of_rounds" value="1">1</button></li>
+      <li><button class="rounds_option" type="submit" name="no_of_rounds" value="3">3</button></li>
+      <li><button class="rounds_option" type="submit" name="no_of_rounds" value="5">5</button></li>
+      <li><button class="rounds_option" type="submit" name="no_of_rounds" value="7">7</button></li>
+    </ul>
+    </form>
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game Over</title>
+    <link href="views/css/rps-stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+  </head>
+
+  <body id="game_over">
+
+    <div id="game_over_header">
+      <p>game over...</p>
+    </div>
+
+    <div id="winner">
+      <img id="trophy" src="views/images/trophy.png">
+      <p><br>...<%= @winner %> wins!</p>
+    </div>
+
+    <div id="new_game">
+      <br><a href="/" id="new_game_link">play again?</a>
+    </div>
+
+  </body>
+</html>

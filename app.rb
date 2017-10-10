@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require File.join(File.dirname(__FILE__), 'lib/game.rb')
 require File.join(File.dirname(__FILE__), 'lib/player.rb')
+require File.join(File.dirname(__FILE__), 'lib/comp.rb')
+
 
 class RPS < Sinatra::Base
 
@@ -11,7 +13,7 @@ get '/' do
 end
 
 post '/name' do
-  $game = Game.new(Player.new(params[:human_name]))
+  $game = Game.new(Player.new(params[:human_name]), Comp.new)
   redirect '/play'
 end
 

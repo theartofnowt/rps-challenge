@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+    <link href="views/css/rps-stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div id="title-box">
+      <div class="container-rock">
+        <img src="views/images/left/rockyellow.png" alt="Avatar" class="image">
+        <div class="overlay">
+          <div class="text">Rock!</div>
+        </div>
+      </div>
+      <div class="container-paper">
+        <img src="views/images/left/paperblue.png" alt="Avatar" class="image">
+        <div class="overlay">
+          <div class="text">Paper!</div>
+        </div>
+      </div>
+      <div class="container-scissors">
+        <img src="views/images/left/scissorsgreen.png" alt="Avatar" class="image">
+        <div class="overlay">
+          <div class="text">Scissors!</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="subtitle-box">
+      <h3>Please enter your name below.</h3>
+    </div>
+
+    <div id="form-box">
+      <form method="post" action="/player_name">
+        <input id="name-box" name="player_name" title="player_name" type="text"><br>
+        <input id="submit-button" type="submit" value="Submit">
+      </form>
+    </div>
+
+  </body>
+
+</html>

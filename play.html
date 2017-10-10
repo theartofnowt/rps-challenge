@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Play!</title>
+    <link href="views/css/rps-stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <script type="text/javascript" src="views/js/script.js"></script>
+  </head>
+  <body>
+
+    <div class="popup" onclick="myFunction()">RPS Rules!
+      <div class="popuptext" id="myPopup">
+        <div class="popup_contents" id="rules_contents">
+          <p id="rules_header">The Rules...</p>
+          <table>
+            <tr>
+              <th><img class="rules_image" src="views/images/right/rockgrey.png"></th>
+              <th>rock beats scissors</th>
+              <th><img class="rules_image" src="views/images/right/scissorsgrey.png"></th>
+            </tr>
+            <tr>
+              <th><img class="rules_image" src="views/images/right/scissorsgrey.png"></th>
+              <th>scissors beat paper</th>
+              <th><img class="rules_image" src="views/images/right/papergrey.png"></th>
+            </tr>
+            <tr>
+              <th><img class="rules_image" src="views/images/right/papergrey.png"></th>
+              <th>paper beats rock</th>
+              <th><img class="rules_image" src="views/images/right/rockgrey.png"></th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="main_game_header">
+      <h2>Round <%= @round_no %></h2>
+      <h2>Choose your weapon!</h2>
+      <br>
+    </div>
+
+    <div id="weapons_box">
+      <form method="post" action="/fight">
+        <ul>
+          <li>
+            <button class="weapon_option" type="submit" name="weapon" value="ruby">
+                <img class="weapon_icon" src="views/images/left/rockyellow.png">
+                <br>Rock
+            </button>
+          </li>
+          <li>
+            <button class="weapon_option" type="submit" name="weapon" value="paper">
+                <img class="weapon_icon" src="views/images/left/paperblue.png">
+                <br>Paper
+            </button>
+          </li>
+          <li>
+            <button class="weapon_option" type="submit" name="weapon" value="scissors">
+                <img class="weapon_icon" src="views/images/left/scissorsgreen.png">
+                <br>Scissors
+            </button>
+          </li>
+        </ul>
+      </form>
+    </div>
+
+
+  </body>
+</html>
