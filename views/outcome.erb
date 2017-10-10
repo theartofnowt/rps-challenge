@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Outcome!</title>
-    <link href="views/css/rps-stylesheet.css" rel="stylesheet">
+    <link href="css/rps-stylesheet.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
   </head>
 
@@ -26,13 +26,13 @@
       <tr>
         <th>
           <div id="player_1_throw">
-            <img src="/views/images/left/<%= @player_1_weapon %>.png" id="player_1_weapon"><br>
+            <img id="throwscore" src="images/left/<%= @player_1_weapon %>.png" id="player_1_weapon"><br>
             <%= @player_1_name %> throws <%= @player_1_weapon %>!
           </div>
         </th>
         <th>
           <div id="player_2_throw">
-            <img src="/views/images/right/<%= @player_2_weapon %>.png" id="player_2_weapon"><br>
+            <img id="throwscore" src="images/right/<%= @player_2_weapon %>.png" id="player_2_weapon"><br>
             <%= @player_2_name %> throws <%= @player_2_weapon %>!
           </div>
         </th>

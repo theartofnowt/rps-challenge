@@ -1,34 +1,61 @@
 require 'sinatra/base'
-require File.join(File.dirname(__FILE__), 'lib/game.rb')
-require File.join(File.dirname(__FILE__), 'lib/player.rb')
-require File.join(File.dirname(__FILE__), 'lib/comp.rb')
+require './lib/game'
 
+class RockPaperScissors < Sinatra::Base
+  enable :sessions
 
-class RPS < Sinatra::Base
+  before do
+    @game = session[:game]
+  end
 
-enable :sessions
+  get '/' do
+    session.clear
+    session[:game] = Game.new
+    erb :index
+  end
 
-get '/' do
-  erb :index
-end
+  post '/player_name' do
+    @game.create_players(Player.new(params[:player_name]))
+    redirect '/rounds'
+  end
 
-post '/name' do
-  $game = Game.new(Player.new(params[:human_name]), Comp.new)
-  redirect '/play'
-end
+  get '/rounds' do
+    @player_name = @game.players[0].name
+    erb :rounds
+  end
 
-get '/play' do
-  erb :play
-end
+  post '/play' do
+    @game.no_of_rounds = params[:no_of_rounds].to_i
+    redirect '/play'
+  end
 
-post '/signs' do
-  $game.player.chooses_sign(params[:signs_choice])
-  redirect '/result'
-end
+  get '/play' do
+    if @game.round <= @game.no_of_rounds
+      @round_no = @game.round
+      erb :play
+    else
+      redirect '/game_over'
+    end
+  end
 
-get '/result' do
-  erb :result
-end
+  post '/fight' do
+    session[:weapon] = params[:weapon]
+    redirect '/outcome'
+  end
 
-run! if app_file == $0
+  get '/outcome' do
+    @player_1_weapon = session[:weapon].to_s
+    @player_2_weapon = Game::WEAPONS.sample.to_s
+    @player_1_name = @game.players[0].name
+    @player_2_name = @game.players[1].name
+    @round_winner = @game.fight(@player_1_weapon, @player_2_weapon)
+    erb :outcome
+  end
+
+  get '/game_over' do
+    @winner = @game.winner
+    erb :game_over
+  end
+
+  run! if __FILE__ == $PROGRAM_NAME
 end

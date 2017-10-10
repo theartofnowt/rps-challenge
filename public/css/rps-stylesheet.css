@@ -137,6 +137,10 @@ input {
   -ms-transform: translate(-50%, -50%);
 }
 
+#main_game_header {
+  font-size: 45px;
+}
+
 #rounds_question_box {
     padding-top: 30px;
     font-size: 45px;
@@ -182,7 +186,7 @@ li {
 
 #weapons_box {
     font-size: 20px;
-    margin: auto;
+    margin: 0px;
     width: 100%;
     text-align: center;
     padding-top: 15px;
@@ -191,8 +195,8 @@ li {
 img.weapon_icon {
     background-color: transparent;
     width: 100%;
-    min-height: 15%;
-    padding-right: 30px;
+    min-height: 10%;
+    /*padding-right: 10px;*/
 }
 
 .weapon_option {
@@ -376,14 +380,22 @@ tr {
 
 @media screen and (max-width: 950px) {
   .text {font-size: 20px;}
+  #main_game_header {font-size: 30px;}
+  #rounds_question_box {font-size: 30px;}
   #name-box {color: #4A90E2;}
-  #game_over_header {font-size: 50px;}
+  #game_over_header {font-size: 100px;}
   #winner {font-size: 40px;}
+
 }
 
 @media screen and (max-width: 600px) {
   .text {font-size: 10px;}
+  #main_game_header {font-size: 20px;}
+  #rounds_question_box {font-size: 20px;}
+  #rounds_option_box {padding-top: 0px; width: 100%;}
   #name-box {color: #50E3C2;}
+  img.weapon_icon {width: 45%;}
+  #throwscore {width: 70%;}
   #game_over_header {font-size: 50px;}
   #winner {font-size: 30px;}
 }
